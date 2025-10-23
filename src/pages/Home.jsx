@@ -1,14 +1,16 @@
 import React from 'react';
 import Hero from '../Components/Hero/Hero';
-import { useLoaderData } from 'react-router';
+import TopRated from '../Components/TopRated';
 
 const Home = () => {
-    const data = useLoaderData();
+    
+    
     
     
     return (
         <div className='min-h-screen'>
             <Hero/>
+            <TopRated/>
         </div>
     );
 };

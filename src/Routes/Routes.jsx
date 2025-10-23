@@ -6,6 +6,7 @@ import Plants from "../pages/Plants";
 import MyProfile from "../pages/MyProfile";
 import Register from "../pages/Register";
 import LogIn from "../pages/LogIn";
+import Loader from "../Components/Loader";
 
 export const router = createBrowserRouter([
   {
@@ -15,7 +16,8 @@ export const router = createBrowserRouter([
     {
         index:true,
         Component:Home,
-        loader:()=>fetch('/data.json')
+        loader:()=>fetch('/data.json'),
+        hydrateFallbackElement:<Loader/>
     },
     {
         path:'/plants',
