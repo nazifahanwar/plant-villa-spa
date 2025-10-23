@@ -1,12 +1,12 @@
 import React from 'react';
-import Navbar from '../Components/Navbar';
 import { Outlet } from 'react-router';
 import Footer from '../Components/Footer';
+import Navbar from '../Components/Navbar/Navbar';
 
 const MainLayout = () => {
     
     return (
-        <div className="montserrat">
+        <div className="montserrat bg-base-100">
             <Navbar/>
             <Outlet/>
             <Footer/>
