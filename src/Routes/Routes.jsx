@@ -7,6 +7,8 @@ import MyProfile from "../pages/MyProfile";
 import Register from "../pages/Register";
 import LogIn from "../pages/LogIn";
 import Loader from "../Components/Loader";
+import PrivateRoute from "./PrivateRoute";
+import PlantDetails from "../pages/PlantDetails";
 
 export const router = createBrowserRouter([
   {
@@ -36,6 +38,10 @@ export const router = createBrowserRouter([
     {
         path:'/login',
         Component:LogIn
+    },
+    {
+        path:'/plant-details/:id',
+        element:<PrivateRoute><PlantDetails/></PrivateRoute>
     }
 ] },
    
