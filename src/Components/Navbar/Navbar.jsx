@@ -1,16 +1,30 @@
-import React from 'react';
+import React, { use } from 'react';
 import { Link, NavLink } from 'react-router';
 import logo from '../../assets/logo.png'
 import  '../Navbar/Navbar.css'
 import Hero from '../Hero/Hero';
+import userIcon from '../../assets/userIcon.png'
+import { AuthContext } from '../../authContext/AuthContext';
+import { MdMenu } from 'react-icons/md';
+import { CiMenuFries } from 'react-icons/ci';
 const Navbar = () => {
+  const {user,logOut} = use(AuthContext)
 const links =
     <>
     <li><NavLink className='text-white font-semibold' to='/'>Home</NavLink></li>
     <li><NavLink className='text-white font-semibold' to='/plants'>Plants</NavLink></li>
     <li><NavLink className='text-white font-semibold' to='/my-profile'>My Profile</NavLink></li>
     </>
-
+const handleLogOut = () => {
+    logOut()
+      .then(() => {
+        alert("You Logged Out successfully");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+  
     return (
       <div> 
       <div className='bg-base-300 shadow-sm'>
@@ -23,8 +37,10 @@ const links =
       </div>
       <ul
         tabIndex="-1"
-        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-999 mt-3 w-52 p-2 shadow">
         {links}
+        {user && 
+        <li><button onClick={handleLogOut} className="font-semibold text-white">Log Out</button></li>}
       </ul>
     </div>
     <div className='flex items-center justify-center lg:gap-1'>
@@ -41,8 +57,32 @@ const links =
     </ul>
   </div>
   <div className="navbar-end">
-    <Link to='/register' className=' text-white font-semibold rounded-xl p-2 hover:border-gray-400 hover:border-2' >Register</Link>
-    <Link to='/login'className=' border-1 rounded-xl p-2 bg-white ml-3 text-[#344e41] font-semibold'>Log in</Link>
+     {user ?  (
+    <div className="dropdown dropdown-end flex">
+      <img className="w-12 rounded-full" src={user.photoURL || userIcon}/>
+      <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+        <CiMenuFries className=" text-white text-2xl rounded-full"/>
+        
+      </div>
+      <ul
+        tabIndex={0}
+        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-9999 mt-3 w-40 p-2 shadow"
+      >
+        <li>
+          <a className="font-semibold text-gray-700">{user.displayName}</a>
+        </li>
+        <li>
+          <button onClick={handleLogOut} className="font-semibold text-red-500">
+            Log Out
+          </button>
+        </li>
+      </ul>
+    </div>
+  ):(
+
+<div><Link to='/register' className=' text-white font-semibold rounded-xl p-2 hover:border-gray-400 hover:border-2' >Register</Link>
+    <Link to='/login'className=' border-1 rounded-xl p-2 bg-white ml-3 text-[#344e41] font-semibold'>Log In</Link></div>)
+}   
     </div>
   </div>
   </div>

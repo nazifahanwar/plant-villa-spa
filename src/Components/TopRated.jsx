@@ -9,16 +9,16 @@ const TopRated = () => {
     console.log('data',data);
     
     return (
-        <div>
-            <div className='bg-base-300'>
+        <div className='bg-base-200 my-9 sm:my-14'>
+            <div>
          <h2
         className="text-3xl font-bold pt-5 text-center text-white">Our Top Rated Plants
       </h2>
-      <p className='text-accent py-2 text-center text-gray-300'>
+      <p className='text-accent py-2 text-center text-white'>
         Handpicked greenery,rated best by our community.
       </p> 
             </div>
-            <div className='grid grid-cols-2 md:grid-cols-4 gap-5 container mx-auto py-5'>
+            <div className='grid grid-cols-2 md:grid-cols-4 gap-5 container mx-auto pb-9'>
            {topRated.map(plant => <Card key={plant.plantId} plant={plant}/>)} 
         </div>
         </div>

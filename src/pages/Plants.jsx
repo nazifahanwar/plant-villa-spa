@@ -43,7 +43,7 @@ const handleSearch = (e) => {
     ))}
   </div>
 ) : (<div className='flex flex-col justify-center items-center min-h-screen'>
-    <BiSolidError className='text-9xl text-accent'/><p className='text-accent'>No Plant Found</p>
+    <BiSolidError className='text-9xl text-[#344e41]'/><p className='text-[#344e41]'>No Plant Found</p>
 </div>)}
            
         </div>
