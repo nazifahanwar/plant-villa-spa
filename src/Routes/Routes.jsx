@@ -21,7 +21,9 @@ export const router = createBrowserRouter([
     },
     {
         path:'/plants',
-        Component:Plants
+        Component:Plants,
+        loader:()=>fetch('/data.json'),
+        hydrateFallbackElement:<Loader/>
     },
     {
         path:'/my-profile',

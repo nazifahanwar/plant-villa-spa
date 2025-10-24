@@ -5,9 +5,9 @@ import Card from './Card';
 
 const TopRated = () => {
     const data = useLoaderData();
-    const copyData = [...data]
-    const topRated = copyData.sort((a,b)=> b.rating - a.rating).slice(0,8);
-    console.log(topRated);
+    const topRated = [...data].toSorted((a,b)=> b.rating - a.rating).slice(0,8);
+    console.log('data',data);
+    
     return (
         <div>
             <div className='bg-base-300'>
