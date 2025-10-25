@@ -1,8 +1,10 @@
 import React from 'react';
 import newsLetterImg from '../assets/plant-wall-shelf-with-blank-space.jpg'
+import { toast } from 'sonner';
 const handleSubscribe=(e)=>{
+    e.preventDefault();
     e.target.reset();
-    alert('Subscription done successfully!')
+    toast.success('Subscription done successfully!')
 }
 const NewsLetter = () => {
     return (
@@ -15,10 +17,10 @@ const NewsLetter = () => {
       <p className='text-accent py-2 text-center text-white'>
         Stay up to date on the latest news with our carefully curated newsletters.
       </p> 
-                    <div className="join w-full">
-  <button onClick={handleSubscribe} type='button' className="btn join-item btn-primary">Subscribe</button>
+                    <form onSubmit={handleSubscribe}><div className="join w-full">
+  <button type='submit' className="btn join-item btn-primary">Subscribe</button>
   <input  className="input  w-full border border-[#344e41] px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#344e41]" placeholder="Enter Your Email..." type='email' required/>
-</div>
+</div></form>
                 </div>
              <div className='sm:w-1/2 '>
                 <img src={newsLetterImg} className='w-full object-cover rounded-lg shadow-sm'/>

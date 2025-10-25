@@ -7,6 +7,7 @@ import userIcon from '../../assets/userIcon.png'
 import { AuthContext } from '../../authContext/AuthContext';
 import { MdMenu } from 'react-icons/md';
 import { CiMenuFries } from 'react-icons/ci';
+import { toast } from 'sonner';
 const Navbar = () => {
   const {user,logOut} = use(AuthContext)
 const links =
@@ -18,10 +19,10 @@ const links =
 const handleLogOut = () => {
     logOut()
       .then(() => {
-        alert("You Logged Out successfully");
+        toast.success("You Logged Out successfully");
       })
       .catch((error) => {
-        console.log(error);
+        toast.error(error);
       });
   };
   
@@ -59,7 +60,10 @@ const handleLogOut = () => {
   <div className="navbar-end">
      {user ?  (
     <div className="dropdown dropdown-end flex">
-      <img className="w-12 rounded-full" referrerpolicy="no-referrer" src={user.photoURL || userIcon}/>
+      <div className='flex flex-col items-center sm:hidden'>
+        <img className="w-12 rounded-full" referrerpolicy="no-referrer" src={user.photoURL || userIcon}/>
+      <p className='text-white text-xs '>{user.displayName}</p>
+      </div>
       <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar max-lg:hidden">
         <CiMenuFries className=" text-white text-2xl rounded-full"/>
         

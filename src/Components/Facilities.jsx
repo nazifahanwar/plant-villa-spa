@@ -9,7 +9,7 @@ const Facilities = () => {
     return (
 <div className='bg-white'>
     <div className='container mx-auto py-5'>
-        <div className='p-3 grid md:grid-cols-4 items-center justify-between gap-5'>
+        <div className='p-3 grid lg:grid-cols-4 md:grid-cols-2 items-center justify-between max-sm:gap-5'>
             <div className='flex items-center gap-2'>
                         <TbTruckDelivery className='text-7xl text-accent'/>
         <div>

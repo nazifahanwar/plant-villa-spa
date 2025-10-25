@@ -26,3 +26,8 @@
   --color-secondary: #dad7cd;
   --color-accent: #4B5563;
 }
+@media (max-width: 550px) {
+.authImg{
+  visibility: hidden;
+}
+}

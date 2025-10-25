@@ -1,12 +1,13 @@
 import React from 'react';
 import { FaStar } from 'react-icons/fa';
+import { toast } from 'sonner';
 
 const PlantDetailsCard = ({plant}) => {
 const {providerName,description,careLevel,availableStock,price,category,plantName,rating,image} = plant;
 const handConsult=(e)=>{
     e.preventDefault();
     e.target.reset();
-    alert('success!!!')
+    toast.success('Consultation booked successfully!')
 }
     return (
         <div className=' bg-[#a3b18a] '>
@@ -18,32 +19,32 @@ const handConsult=(e)=>{
   <div className="md:w-1/2 flex flex-col justify-between">
     <div>
         <div className='flex items-center justify-between'>
-      <h1 className="text-3xl text-white font-bold">{plant.plantName}</h1>
+      <h1 className="text-3xl max-sm:text-xl text-white font-bold">{plant.plantName}</h1>
       <p className={plant.availableStock > 0 ? 'text-accent bg-gray-100 rounded-md p-1 text-sm border shadow-sm' : 'text-red-500 bg-gray-200 rounded-md p-1 border shadow-sm '}>
   {plant.availableStock > 0
     ? `In stock:${plant.availableStock} ${plant.availableStock>1 ? 'pieces' : 'piece'}`
     : 'Out of Stock'}
 </p></div>
-      <p className=" text-white text-lg">{plant.category}</p>
-      <div className='flex items-center'><FaStar className='text-2xl text-[#344e41]'/><p className="text-[#344e41] mt-2 font-normal text-xl">{plant.rating}</p></div>
+      <p className=" text-white sm:text-lg">{plant.category}</p>
+      <div className='flex items-center'><FaStar className='text-2xl max-sm:text-xl text-[#344e41]'/><p className="text-[#344e41] mt-2 font-normal text-xl">{plant.rating}</p></div>
     </div>
 
     <div className="mt-6 flex flex-col gap-2">
       <p className="text-gray-100 text-lg">{plant.description}</p>
       <p className="text-gray-100">Care Level: <span className="font-semibold">{plant.careLevel}</span></p>
       <p className="text-gray-100">Provider: <span className="font-semibold">{plant.providerName}</span></p>
-      <p className='text-2xl text-white'>Price:<span className="text-[#344e41] text-3xl font-bold mt-4">${plant.price}</span></p>
+      <p className='text-2xl text-white'>Price:<span className="text-[#344e41] text-3xl max-sm:text-2xl font-bold mt-4">${plant.price}</span></p>
       
     </div>
   </div>
 </div>
-<div className='flex max-sm:flex-col justify-between items-center pb-4 container mx-auto'>
-    <div>
-        <h2 className='text-3xl text-white font-bold text-center'>Book A Consultation With Us</h2>
+  <div className='p-3 flex justify-center mx-auto'>
+  <div className='flex max-sm:flex-col justify-between items-center pb-4 container mx-auto'>
+        <div>
+          <h2 className='text-3xl max-sm:text-xl text-white font-bold text-center'>Book A Consultation With Us</h2>
         <p className='text-gray-100 text-center'>Book a session with our plant specialists and watch your garden thrive</p>
     </div>
-<form onSubmit={handConsult} className="space-y-4 w-2/5 mx-auto bg-white p-5 rounded-md">
-            <div>
+<form onSubmit={handConsult} className="space-y-4 max-sm:4/5 sm:w-2/5 h-full mx-auto bg-white p-5 rounded-md">
               <label className="block text-gray-700 text-sm font-medium mb-1">
                 Your Name
               </label>
@@ -51,7 +52,7 @@ const handConsult=(e)=>{
                 placeholder="Name"
                 className="w-full border border-[#344e41] rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#344e41]"
                 required
-              /></div>
+              />
             <div>
               <label className="block text-gray-700 text-sm font-medium mb-1">
                 Email
@@ -72,6 +73,8 @@ const handConsult=(e)=>{
             </button>
 
             </form>
+        
+</div>
 </div>
         
         </div>
