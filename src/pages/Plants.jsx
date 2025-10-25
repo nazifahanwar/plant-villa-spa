@@ -15,7 +15,7 @@ const handleSearch = (e) => {
   setSearch(e.target.value);
 }
     return (
-        <div className='container mx-auto min-h-screen'>
+        <div className='container mx-auto min-h-screen px-3'>
             <div className='flex items-center justify-between py-3'>
                 <p className='font-bold text-2xl mt-2'>Explore All Plants</p>
                 <label className="mt-3 input input-bordered input-primary focus-within:border-[#344e41]

@@ -2,12 +2,12 @@ import React from 'react';
 import newsLetterImg from '../assets/plant-wall-shelf-with-blank-space.jpg'
 const handleSubscribe=(e)=>{
     e.target.reset();
-    alert('Subscription doe successfully!')
+    alert('Subscription done successfully!')
 }
 const NewsLetter = () => {
     return (
         <div className='bg-base-200'>
-            <div className='container mx-auto flex justify-between items-center p-5'>
+            <div className='container mx-auto flex justify-between items-center p-5 gap-5 max-sm:flex-col'>
                 <div>
                              <h2
         className="text-3xl font-bold pt-5 text-center text-white">Sign Up To Our Newsletter
@@ -20,7 +20,7 @@ const NewsLetter = () => {
   <input  className="input  w-full border border-[#344e41] px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#344e41]" placeholder="Enter Your Email..." type='email' required/>
 </div>
                 </div>
-             <div className='w-1/2'>
+             <div className='sm:w-1/2 '>
                 <img src={newsLetterImg} className='w-full object-cover rounded-lg shadow-sm'/>
              </div>
             </div>
