@@ -1,4 +1,4 @@
-import React, { use, useState } from 'react';
+import React, { use, useRef, useState } from 'react';
 import { FcGoogle } from 'react-icons/fc';
 import auth from '../assets/auth.jpg'
 import { Link, useLocation, useNavigate } from 'react-router';
@@ -6,10 +6,12 @@ import { AuthContext } from '../authContext/AuthContext';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 const LogIn = () => {
-  const { signIn,signInWithGoogle,setUser } = use(AuthContext);
+  const { signIn,signInWithGoogle,setUser,resetPassword } = use(AuthContext);
   const location = useLocation();
   const navigate = useNavigate();
   const [showPass,setShowPass] = useState(false);
+  const emailRef = useRef();
+
   const handleLogin = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -41,6 +43,18 @@ const handleGoogleSignIn = () => {
             .catch(error => {
                 console.log(error)
             })
+      }
+const handleForgetPassword = () => {
+        const email = emailRef.current.value;
+        console.log('forget password', email)
+        resetPassword(email)
+            .then(() => {
+                alert('please check your email')
+                window.open("https://mail.google.com", "_blank");
+            })
+            .catch(error =>{
+              alert(error.message)
+            })
         }
     return (<div className="flex justify-between items-stretch m-24 rounded-2xl overflow-hidden h-[550px]">
       <div className="flex items-center justify-center w-1/2 bg-white">
@@ -56,7 +70,7 @@ const handleGoogleSignIn = () => {
                 Email
               </label>
               <input name='email'
-                type="email"
+                type="email" ref={emailRef}
                 placeholder="Email"
                 className="w-full border border-[#344e41] rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#344e41]"
                 required
@@ -76,9 +90,10 @@ const handleGoogleSignIn = () => {
             </div>
 
             <div className="flex justify-between items-center text-sm">
-              <a href="#" className="text-gray-700 hover:text-black">
-                Forgot password?
-              </a>
+              <div onClick={handleForgetPassword}>
+                            <a className="text-gray-700 hover:text-black link-hover">Forgot password?</a>
+                        </div>
+  
             </div>
             <button
               type="submit"
