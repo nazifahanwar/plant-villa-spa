@@ -14,6 +14,7 @@ export const router = createBrowserRouter([
   {
     path: "/",
     Component:MainLayout,
+    errorElement:<div className="min-h-screen bg-base-100 flex justify-center items-center"><p className="text-8xl">404 Error!</p></div>,
     children:[
     {
         index:true,
