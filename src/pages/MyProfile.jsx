@@ -22,8 +22,8 @@ const MyProfile = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center  px-4">
-      <div className="bg-base-200 p-6 rounded-2xl shadow-md w-full max-w-md text-center">
+    <div className="py-10 flex flex-col items-center justify-center container ">
+      <div className="bg-base-200 p-6 rounded-2xl shadow-md w-full max-w-2/5 text-center">
         <div className="flex flex-col items-center">
           <img className={editing? 'hidden' : 'w-28 h-28 rounded-full border-4 border-white shadow-md object-cover'}
             src={photo || userIcon}

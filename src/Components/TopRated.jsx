@@ -9,7 +9,7 @@ const TopRated = () => {
     console.log('data',data);
     
     return (
-        <div className='bg-base-200 my-9 sm:my-14'>
+      <div>
             <div>
          <h2
         className="text-3xl font-bold pt-5 text-center text-white">Our Top Rated Plants
