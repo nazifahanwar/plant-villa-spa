@@ -33,7 +33,13 @@ const googleProvider = new GoogleAuthProvider();
     }
 
   const updateUser = (updatedData) => {
-    return updateProfile(auth.currentUser, updatedData);
+    return updateProfile(auth.currentUser, updatedData)
+    .then(() => {
+      setUser((prevUser) => ({
+        ...prevUser,
+        ...updatedData,
+      }));
+    });
   };
 
   const logOut = () => {

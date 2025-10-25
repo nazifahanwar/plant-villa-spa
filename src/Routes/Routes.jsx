@@ -29,7 +29,7 @@ export const router = createBrowserRouter([
     },
     {
         path:'/my-profile',
-        Component:MyProfile
+        element:<PrivateRoute><MyProfile/></PrivateRoute>
     },
     {
         path:'/register',

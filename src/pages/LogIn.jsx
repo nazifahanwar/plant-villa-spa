@@ -36,6 +36,7 @@ const handleGoogleSignIn = () => {
             .then(result => {
                 console.log(result.user);
                 setUser(result.user);
+                navigate(`${location.state ? location.state : "/"}`);
             })
             .catch(error => {
                 console.log(error)
@@ -71,7 +72,7 @@ const handleGoogleSignIn = () => {
                 placeholder="Password"
                 className="w-full border border-[#344e41] rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#344e41]"
                 required
-              /><button type='button' className='absolute top-8 right-5' onClick={handleToggleShowPass}>{showPass ? <FaEyeSlash></FaEyeSlash> : <FaEye></FaEye>}</button>
+              /><button type='button' className='absolute top-9 right-2' onClick={handleToggleShowPass}>{showPass ? <FaEyeSlash></FaEyeSlash> : <FaEye></FaEye>}</button>
             </div>
 
             <div className="flex justify-between items-center text-sm">

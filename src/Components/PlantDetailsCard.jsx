@@ -4,22 +4,22 @@ import { FaStar } from 'react-icons/fa';
 const PlantDetailsCard = ({plant}) => {
 const {providerName,description,careLevel,availableStock,price,category,plantName,rating,image} = plant;
 const handConsult=(e)=>{
-    e.preventDefault;
-    e.target.value.reset();
+    e.preventDefault();
+    e.target.reset();
     alert('success!!!')
 }
     return (
-        <div className=' bg-[#a3b18a] my-9 sm:my-14'>
+        <div className=' bg-[#a3b18a] '>
         <div className="flex flex-col md:flex-row gap-6 p-3   container mx-auto">
   <div className="md:w-1/2">
-    <img src={plant.image} alt={plant.plantName} className="w-full h-96 object-cover rounded-xl"/>
+    <img src={plant.image} alt={plant.plantName} className="w-full h-96 object-cover rounded-xl" />
   </div>
 
   <div className="md:w-1/2 flex flex-col justify-between">
     <div>
         <div className='flex items-center justify-between'>
       <h1 className="text-3xl text-white font-bold">{plant.plantName}</h1>
-      <p className={plant.availableStock > 0 ? 'text-[#344e41] bg-gray-100 rounded-md p-1 text-sm border shadow-sm outline-[#344e41]' : 'text-red-500 bg-gray-100 rounded-md p-1 border shadow-sm border-[#344e41]'}>
+      <p className={plant.availableStock > 0 ? 'text-accent bg-gray-100 rounded-md p-1 text-sm border shadow-sm' : 'text-red-500 bg-gray-200 rounded-md p-1 border shadow-sm '}>
   {plant.availableStock > 0
     ? `In stock:${plant.availableStock} ${plant.availableStock>1 ? 'pieces' : 'piece'}`
     : 'Out of Stock'}

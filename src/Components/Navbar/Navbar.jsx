@@ -59,7 +59,7 @@ const handleLogOut = () => {
   <div className="navbar-end">
      {user ?  (
     <div className="dropdown dropdown-end flex">
-      <img className="w-12 rounded-full" src={user.photoURL || userIcon}/>
+      <img className="w-12 rounded-full" referrerpolicy="no-referrer" src={user.photoURL || userIcon}/>
       <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
         <CiMenuFries className=" text-white text-2xl rounded-full"/>
         

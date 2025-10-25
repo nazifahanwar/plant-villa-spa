@@ -49,6 +49,7 @@ const Register = () => {
             .then(result => {
                 console.log(result.user);
                 setUser(result.user);
+                navigate( "/");
             })
             .catch(error => {
             const errorCode = error.code;
@@ -118,7 +119,7 @@ const Register = () => {
                 placeholder="Create Password"
                 className="w-full border border-[#344e41] rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#344e41]  "
                 required 
-              /><button type='button' className='absolute top-8 right-5' onClick={handleToggleShowPass}>{showPass ? <FaEyeSlash></FaEyeSlash> : <FaEye></FaEye>}</button>
+              /><button type='button' className='absolute top-8 right-3' onClick={handleToggleShowPass}>{showPass ? <FaEyeSlash></FaEyeSlash> : <FaEye></FaEye>}</button>
               {error && <p className="text-xs text-red-600">{error}</p>}
             </div>
             <button
